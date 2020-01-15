@@ -48,7 +48,7 @@ AS_IF([test "x$enable_gtk3" = "xyes"], [
 
 	AC_SUBST(HAVE_GLADE_LIB, 0)
 
-	vte_lib="vte >= 0.29.0"
+	vte_lib="vte-2.91 >= 0.29.0"
 	PKG_CHECK_MODULES([VTE], \
 		[$vte_lib], \
 		AC_SUBST(HAVE_VTE, 1),\

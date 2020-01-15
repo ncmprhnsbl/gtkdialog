@@ -778,14 +778,16 @@ static GtkWidget *put_in_the_scrolled_window(GtkWidget *widget,
 			 * named 'inner-border' so I have to go with the deprecated
 			 * vte_terminal_get_padding() */
 #if VTE_CHECK_VERSION(0,26,0)
-			g_object_get(G_OBJECT(widget), "inner-border", &inner_border, NULL);
+//			g_object_get(G_OBJECT(widget), "inner-border", &inner_border, NULL);
 #ifdef DEBUG_CONTENT
-			fprintf(stderr, "%s(): inner_border.left=%i inner_border.right=%i \
-inner_border.top=%i inner_border.bottom=%i\n", __func__, inner_border.left,
-				inner_border.right, inner_border.top, inner_border.bottom);
+//			fprintf(stderr, "%s(): inner_border.left=%i inner_border.right=%i \
+//inner_border.top=%i inner_border.bottom=%i\n", __func__, inner_border.left,
+//				inner_border.right, inner_border.top, inner_border.bottom);
 #endif
-			xpad = inner_border.left + inner_border.right;
-			ypad = inner_border.top + inner_border.bottom;
+//			xpad = inner_border.left + inner_border.right;
+//			ypad = inner_border.top + inner_border.bottom;
+			ypad = gtk_widget_get_margin_bottom(G_OBJECT(widget));
+			xpad = gtk_widget_get_margin_right(G_OBJECT(widget));
 #else
 			vte_terminal_get_padding(VTE_TERMINAL(widget), &xpad, &ypad);
 #endif
